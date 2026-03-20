@@ -10,8 +10,8 @@ typedef struct {
     SDL_Renderer *renderer;
 } CDY_Simple_Window; // this makes it the word
 
-CDY_Simple_Window *cdy_simple_window_create(const char *title, int width, int height);
-void cdy_simple_window_destroy(CDY_Simple_Window *window); // parameters here
+CDY_Simple_Window *CDY_SimpleWindowCreate(const char *title, int width, int height);
+void CDY_SimpleWindowDestroy(CDY_Simple_Window *window); // parameters here
 
 #endif
 // simple window definition ft window + rend

@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
-CDY_Simple_Window *cdy_simple_window_create(const char *title, int width, int height) {
+CDY_Simple_Window *CDY_SimpleWindowCreate(const char *title, int width, int height) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("Init video error %s\n", SDL_GetError());
         return NULL;

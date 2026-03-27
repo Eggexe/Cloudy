@@ -28,7 +28,6 @@ int main(void) {
             }
         }
         CDY_Pause(16);
-        CDY_PollKeyboardPress(event);
         CDY_ArmRenderer(simple_window);
     }
 

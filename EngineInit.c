@@ -1,9 +1,11 @@
+#include "Input/input_man.h"
 #include "Render/misc.h"
 #include "Render/simple_window.h"
 #include "Render/drawing.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
+#include <SDL2/SDL_timer.h>
 #include <stdio.h>
 
 int main(void) {
@@ -22,11 +24,11 @@ int main(void) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = 0;
+                break;
             }
-            printf("Work?");
-            CDY_Pause(16);
         }
-
+        CDY_Pause(16);
+        CDY_PollKeyboardPress(event);
         CDY_ArmRenderer(simple_window);
     }
 

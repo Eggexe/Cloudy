@@ -16,3 +16,5 @@ void CDY_SimpleWindowDestroy(CDY_Simple_Window *window); // parameters here
 #endif
 // simple window definition ft window + rend
 // mostly a proof of concept cuz this is rlly useless
+//
+// WARN ** THIS WILL BE REFACTORED AFTER V1

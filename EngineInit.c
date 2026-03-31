@@ -9,12 +9,11 @@
 #include <stdio.h>
 
 int main(void) {
-
+    /* ENGINE INSTANCES  */
     CDY_Simple_Window *simple_window = CDY_SimpleWindowCreate("yes", 250, 250);
+    CDY_InputManager *input_manager = CDY_InputManagerCreate();
 
-    CDY_ColorRenderer(simple_window, 100, 0, 0, 255);
-    CDY_WipeRenderer(simple_window);
-    CDY_ArmRenderer(simple_window);
+
 
     /* MAIN ENGINE LOOP START*/
 
@@ -27,7 +26,15 @@ int main(void) {
                 break;
             }
         }
+        CDY_UpdateInput(input_manager);
+        if (CDY_IsKeyHeld(input_manager, SDL_SCANCODE_W)) {
+            printf("W KEY HELD\n");
+        }
+
         CDY_Pause(16);
+
+        CDY_ColorRenderer(simple_window, 100, 0, 0, 255);
+        CDY_WipeRenderer(simple_window);
         CDY_ArmRenderer(simple_window);
     }
 

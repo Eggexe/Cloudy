@@ -11,9 +11,10 @@ typedef struct{
     float rotation; // -360 to +360
 } CDY_Entity;
 
-// TODO:
-// Store CDY_Entity as a list of entities with a pointer towards the entities
-// prolly have a current count of entities
-// with an upper bound for rate limits
+typedef struct{
+    CDY_Entity *entities;
+    int CDY_totalEntityCount;
+    int CDY_entityMaximum;
+} CDY_EntityManager;
 
 #endif

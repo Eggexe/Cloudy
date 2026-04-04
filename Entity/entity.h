@@ -14,9 +14,9 @@ typedef struct{
 typedef struct{
     CDY_Entity *entities;
     int CDY_totalEntityCount;
-    int CDY_entityMaximum;
+    int CDY_maximumEntities;
 } CDY_EntityManager;
 
-// dummy comment
+void CDY_EntityManagerCreate();
 
 #endif

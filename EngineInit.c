@@ -13,8 +13,6 @@ int main(void) {
     CDY_Simple_Window *simple_window = CDY_SimpleWindowCreate("yes", 250, 250);
     CDY_InputManager *input_manager = CDY_InputManagerCreate();
 
-
-
     /* MAIN ENGINE LOOP START*/
 
     int running = 1;

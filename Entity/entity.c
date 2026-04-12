@@ -13,3 +13,11 @@ void CDY_EntityManagerCreate() {
     // little bunch for entMan creation
     // more memory for entities
 }
+
+CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
+    if (manager->CDY_totalEntityCount <= manager->CDY_maximumEntities){
+        return NULL;
+    }
+    // USAGE
+    // CDY_Entity *entityName = CDY_EntityCreate(manager);
+}

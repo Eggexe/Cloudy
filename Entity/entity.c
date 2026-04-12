@@ -15,9 +15,21 @@ void CDY_EntityManagerCreate() {
 }
 
 CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
-    if (manager->CDY_totalEntityCount <= manager->CDY_maximumEntities){
+    if (manager->CDY_totalEntityCount >= manager->CDY_maximumEntities){
         return NULL;
     }
+
+    CDY_Entity *entity = &manager->entities[manager->CDY_totalEntityCount];
+    entity->id = manager->CDY_totalEntityCount;
+    entity->awake = 1;
+    entity->posX = 0;
+    entity->posY = 0;
+    entity->scaleX = 0;
+    entity->scaleY = 0;
+    entity->rotation = 0;
+    manager->CDY_totalEntityCount++;
+    return entity;
+
     // USAGE
     // CDY_Entity *entityName = CDY_EntityCreate(manager);
 }

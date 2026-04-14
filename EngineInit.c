@@ -1,3 +1,4 @@
+#include "Entity/entity.h"
 #include "Input/input_man.h"
 #include "Render/misc.h"
 #include "Render/simple_window.h"
@@ -12,6 +13,8 @@ int main(void) {
     /* ENGINE INSTANCES  */
     CDY_Simple_Window *simple_window = CDY_SimpleWindowCreate("yes", 250, 250);
     CDY_InputManager *input_manager = CDY_InputManagerCreate();
+    CDY_EntityManager *entity_manager = CDY_EntityManagerCreate();
+
 
     /* MAIN ENGINE LOOP START*/
 
@@ -28,6 +31,10 @@ int main(void) {
         if (CDY_IsKeyHeld(input_manager, SDL_SCANCODE_W)) {
             printf("W KEY HELD\n");
         }
+
+
+
+
 
         CDY_Pause(16);
 

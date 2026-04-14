@@ -17,11 +17,11 @@ typedef struct{
     int CDY_maximumEntities;
 } CDY_EntityManager;
 
-void CDY_EntityManagerCreate();                             // init entman
-CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager);   // Adds an entity
-void CDY_EntityDestroy(CDY_EntityManager *manager);         // Destroys an entity
-void CDY_EntityManagerDestroy();                            // Destroys entman, frees memory
-void CDY_EntityManagerUpdate();                             // Updates live list of entities
+CDY_EntityManager *CDY_EntityManagerCreate();                                             // init entman
+CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager);                   // Adds an entity
+int CDY_EntityDestroy(CDY_EntityManager *manager, int search_id);           // Destroys an entity
+void CDY_EntityManagerDestroy();                                            // Destroys entman, frees memory
+void CDY_EntityManagerUpdate();                                             // Updates live list of entities
 
 // Ref NULL returns no point, C_EntCreate needs ref to pointer
 // to return the pointer to that new entity

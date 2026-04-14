@@ -32,9 +32,7 @@ int main(void) {
             printf("W KEY HELD\n");
         }
 
-
-
-
+        CDY_Entity *entity1 = CDY_EntityCreate(entity_manager);
 
         CDY_Pause(16);
 

@@ -1,6 +1,5 @@
 #include "entity.h"
 #include <SDL2/SDL.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 CDY_EntityManager *CDY_EntityManagerCreate() {
@@ -39,6 +38,12 @@ CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
 int CDY_EntityDestroy(CDY_EntityManager *manager, int search_id){
     CDY_Entity *entity;
     for (int search_id; search_id == entity->id; search_id++){
-        return search_id; entity->id;
+        if (search_id == entity->id) {
+            entity->id;
+        }
+        else
+        {
+            continue;
+        }
     }
 }

@@ -43,4 +43,5 @@ int CDY_EntityDestroy(CDY_EntityManager *manager, int search_id){
             return 1; // func success
         }
     return 0;
+    }
 }

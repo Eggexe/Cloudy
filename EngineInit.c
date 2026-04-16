@@ -15,6 +15,8 @@ int main(void) {
     CDY_InputManager *input_manager = CDY_InputManagerCreate();
     CDY_EntityManager *entity_manager = CDY_EntityManagerCreate();
 
+    /* USER VARIABLES */
+    CDY_Entity *entity1 = CDY_EntityCreate(entity_manager);
 
     /* MAIN ENGINE LOOP START*/
 
@@ -32,7 +34,11 @@ int main(void) {
             printf("W KEY HELD\n");
         }
 
-        CDY_Entity *entity1 = CDY_EntityCreate(entity_manager);
+        printf("ID: %d\n", entity1->id);
+        printf("Awake: %d\n", entity1->awake);
+
+        CDY_EntityDestroy(entity_manager, entity1->id);
+        printf("Awake after destroy: %d\n", entity1->awake);
 
         CDY_Pause(16);
 

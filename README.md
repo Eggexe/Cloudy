@@ -47,8 +47,8 @@ See below for a list of the latest changes
 - [x] Window & Renderer
 - [x] Game loop
 - [x] Input Manager
-- [ ] Entity System
-- [ ] Scene System
+- [x] Entity System
+- [ ] Scene System - VOIDED, moved to V2
 - [ ] Pong game demo
 
 ### 🟥 v2 - Proper release
@@ -56,6 +56,7 @@ See below for a list of the latest changes
 - [ ] Component Handling
 - [ ] Event bus
 - [ ] Old systems refactor
+- [ ] Scene System
 
 ## 🖋️ Naming Conventions
 

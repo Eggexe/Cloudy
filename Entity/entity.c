@@ -36,14 +36,11 @@ CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
 }
 
 int CDY_EntityDestroy(CDY_EntityManager *manager, int search_id){
-    CDY_Entity *entity;
-    for (int search_id; search_id == entity->id; search_id++){
+    for (int i = 0; i < manager->CDY_totalEntityCount; i++){
+        CDY_Entity *entity = &manager->entities[i]; // get address of manager entity store
         if (search_id == entity->id) {
-            entity->id;
+            entity->awake = 0;
+            return 1; // func success
         }
-        else
-        {
-            continue;
-        }
-    }
+    return 0;
 }

@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 
-void CDY_Pause(int time);
+void CDY_Pause(float time);
 void CDY_Close();
 
 /* WARN

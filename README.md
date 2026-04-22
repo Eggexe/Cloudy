@@ -49,6 +49,7 @@ See below for a list of the latest changes
 - [x] Input Manager
 - [x] Entity System
 - [ ] Scene System - VOIDED, moved to V2
+- [X] Simple physics system
 - [ ] Pong game demo
 
 ### 🟥 v2 - Proper release

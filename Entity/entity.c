@@ -1,5 +1,6 @@
 #include "entity.h"
 #include <SDL2/SDL.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 CDY_EntityManager *CDY_EntityManagerCreate() {

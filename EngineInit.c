@@ -1,11 +1,17 @@
 #include "Entity/entity.h"
+
 #include "Input/input_man.h"
+
 #include "Ext/misc.h"
+
 #include "Render/simple_window.h"
 #include "Render/drawing.h"
 
+#include "Physics/physics.h"
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
+#include <SDL2/SDL_render.h>
 #include <SDL2/SDL_stdinc.h>
 #include <SDL2/SDL_timer.h>
 #include <stdio.h>
@@ -18,18 +24,21 @@ int main(void) {
 
     /* USER VARIABLES */
     CDY_Entity *entity1 = CDY_EntityCreate(entity_manager);
+    entity1->scaleX = 50;
+    entity1->scaleY = 50;
+    entity1->posX = 100;
+    entity1->posY = 100;
 
     int frame_counter = 0;
     Uint64 fps_timer = SDL_GetTicks64();
-    int frame_start_point = SDL_GetTicks64();
+
     /* MAIN ENGINE LOOP START*/
-
-
-
     int running = 1;
     while (running) {
         float target_frame_time = 1000.0f / 60.0f;
         frame_counter++;
+
+        int frame_start_point = SDL_GetTicks64();
 
         if (SDL_GetTicks64() - fps_timer >= 1000)
         {
@@ -49,16 +58,12 @@ int main(void) {
             printf("W KEY HELD\n");
         }
 
-        printf("ID: %d\n", entity1->id);
-        printf("Awake: %d\n", entity1->awake);
+        CDY_ColorRenderer(simple_window, 100, 0, 0, 255);   // bg
+        CDY_WipeRenderer(simple_window);                    // clear screen
 
-        CDY_EntityDestroy(entity_manager, entity1->id);
-        printf("Awake after destroy: %d\n", entity1->awake);
+        CDY_ColorRenderer(simple_window, 0, 0, 255, 255);   // rect colour
+        CDY_DrawEntity(simple_window, entity1);             // draw it
 
-
-
-        CDY_ColorRenderer(simple_window, 100, 0, 0, 255);
-        CDY_WipeRenderer(simple_window);
         CDY_ArmRenderer(simple_window);
 
         int curr_frame_time = SDL_GetTicks64() - frame_start_point;

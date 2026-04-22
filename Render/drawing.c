@@ -1,6 +1,8 @@
 #include "drawing.h"
 #include "simple_window.h"
+#include "../Entity/entity.h"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
 
 void CDY_ArmRenderer(CDY_Simple_Window *window) {
@@ -15,9 +17,13 @@ void CDY_WipeRenderer(CDY_Simple_Window *window) {
     SDL_RenderClear(window->renderer);
 }
 
-int CDY_DrawRectangle(CDY_Simple_Window *window, CDY_Rectangle rectangle) {
-    SDL_RenderDrawRect(window->renderer, &rectangle.rectangle);
-    /* Required to draw a rectangle first, see CDY_CreateRectangle */
+int CDY_DrawEntity(CDY_Simple_Window *window, CDY_Entity *entity) {
+    SDL_Rect rect;
+    rect.x = (int)entity->posX;
+    rect.y = (int)entity->posY;
+    rect.w = (int)entity->scaleX;
+    rect.h = (int)entity->scaleY;
+    SDL_RenderFillRect(window->renderer, &rect);
 }
 
 CDY_Rectangle CDY_CreateRectangle(int x, int y, int w, int h) {

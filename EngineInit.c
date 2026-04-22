@@ -1,8 +1,13 @@
 #include "Entity/entity.h"
+
 #include "Input/input_man.h"
+
 #include "Ext/misc.h"
+
 #include "Render/simple_window.h"
 #include "Render/drawing.h"
+
+#include "Physics/physics.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
@@ -19,7 +24,10 @@ int main(void) {
 
     /* USER VARIABLES */
     CDY_Entity *entity1 = CDY_EntityCreate(entity_manager);
-    CDY_Rectangle rect = CDY_CreateRectangle(100, 100, 100, 100);
+    entity1->scaleX = 50;
+    entity1->scaleY = 50;
+    entity1->posX = 100;
+    entity1->posY = 100;
 
     int frame_counter = 0;
     Uint64 fps_timer = SDL_GetTicks64();
@@ -54,8 +62,7 @@ int main(void) {
         CDY_WipeRenderer(simple_window);                    // clear screen
 
         CDY_ColorRenderer(simple_window, 0, 0, 255, 255);   // rect colour
-        CDY_DrawRectangle(simple_window, rect);             // draw it
-        SDL_RenderFillRect(simple_window->renderer, &rect.rectangle);//present
+        CDY_DrawEntity(simple_window, entity1);             // draw it
 
         CDY_ArmRenderer(simple_window);
 

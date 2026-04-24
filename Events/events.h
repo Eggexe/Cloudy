@@ -4,9 +4,17 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
 
+typedef enum {
+    CDY_EVENT_QUIT,
+    CDY_EVENT_KEYDOWN,
+    CDY_EVENT_KEYUP,
+    CDY_EVENT_NONE
+} CDY_EventType;
+
 typedef struct {
-    SDL_Event event;
-} CDY_Event; // CDY Event typedef
+    CDY_EventType type;
+} CDY_Event;
+
 
 int CDY_PollEvent(CDY_Event *event);
 

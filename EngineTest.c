@@ -21,31 +21,20 @@ int main(void) {
     CDY_Simple_Window *simple_window = CDY_SimpleWindowCreate("yes", 250, 250);
     CDY_InputManager *input_manager = CDY_InputManagerCreate();
     CDY_EntityManager *entity_manager = CDY_EntityManagerCreate();
+    CDY_FPSManager *fps = CDY_FPSManagerCreate(60);
 
     /* USER VARIABLES */
     CDY_Entity *entity1 = CDY_EntityCreate(entity_manager);
-    entity1->scaleX = 50;
+    entity1->scaleX = 500;
     entity1->scaleY = 50;
     entity1->posX = 100;
     entity1->posY = 100;
 
-    int frame_counter = 0;
-    Uint64 fps_timer = SDL_GetTicks64();
-
     /* MAIN ENGINE LOOP START*/
     int running = 1;
     while (running) {
-        float target_frame_time = 1000.0f / 60.0f;
-        frame_counter++;
+        CDY_FPSEnd(fps);
 
-        int frame_start_point = SDL_GetTicks64();
-
-        if (SDL_GetTicks64() - fps_timer >= 1000)
-        {
-            printf("FPS: %d\n", frame_counter);
-            frame_counter = 0;
-            fps_timer = SDL_GetTicks64();
-        }
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
@@ -66,12 +55,7 @@ int main(void) {
 
         CDY_ArmRenderer(simple_window);
 
-        int curr_frame_time = SDL_GetTicks64() - frame_start_point;
-
-        if (curr_frame_time < target_frame_time)
-        {
-            CDY_Pause(target_frame_time - curr_frame_time);
-        }
+        CDY_FPSEnd(fps);
     }
 
     /* MAIN ENGINE LOOP END */

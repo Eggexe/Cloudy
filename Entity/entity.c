@@ -28,7 +28,6 @@ CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
     entity->posY = 0;
     entity->scaleX = 0;
     entity->scaleY = 0;
-    entity->rotation = 0;
     manager->CDY_totalEntityCount++;
     return entity;
 

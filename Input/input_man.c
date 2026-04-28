@@ -17,7 +17,7 @@ void CDY_UpdateInput(CDY_InputManager *input) {
     SDL_PumpEvents(); // ask os for new events otherwise nothing gets sent back to engine
 }
 
-int CDY_IsKeyHeld(CDY_InputManager *input, SDL_Scancode key) {
+int CDY_IsKeyHeld(CDY_InputManager *input, CDY_Scancode key) {
     return input->keyboard_state[key];
     // Reminder - SDL_Scancode is an enum, keys become numbers
     // Function purely returns a 1 if key is held, 0 if not

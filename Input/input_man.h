@@ -4,16 +4,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
 
+// 1 byte is saved for saving keys pressed on keyboard state
+// for future comparison
 typedef struct{
     const Uint8 *keyboard_state;
-    /*
-     * Why do this? Personal note
-     * const - forces it to be untouched so no weird things happen
-     * Uint8 ensures 8 bits (1 byte) for a char on keyboard, point to that too
-     * save as input manager
-     */
 } CDY_InputManager;
 
+// Abstracts SDL_SCANCODE to a CDY alternative
 typedef enum {
     CDY_KEY_W = SDL_SCANCODE_W,
     CDY_KEY_S = SDL_SCANCODE_S,
@@ -23,8 +20,16 @@ typedef enum {
     CDY_KEY_ESCAPE = SDL_SCANCODE_ESCAPE
 } CDY_Scancode;
 
+// Creates an input manager, takes no parameters
 CDY_InputManager *CDY_InputManagerCreate(); // input_man init
+
+// Asks OS for the newest events
+// *input: variable to the input manager
 void CDY_UpdateInput(CDY_InputManager *input);
+
+// Asks for the key held, returns 1 if it is, 0 if not
+// *input: variable to the input manager
+// CDY_Scancode key: See CDY_Scancode enum above for a list of keys
 int CDY_IsKeyHeld(CDY_InputManager *input, CDY_Scancode key);
 
 #endif

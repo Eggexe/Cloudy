@@ -37,3 +37,28 @@ To summarise:
 - Systems enact logic with component data
 - AI can be optional, it is not a requirement
 - All input sources should be kept equal
+
+## Entity Representation
+
+As stated in Architecture Overview, entities are purely integers. Currently, entities posses these basic attributes: `id`, `awake`, `posX`, `posY`, `scaleX`, `scaleY`. This was badly designed for V1's engine where, if I were to make an entity to play music, it wouldn't need a scale. Speaking of scale, it is worth mentioning scaleX and scaleY are referring to width and height respectively. I initially wrote scale variables as a means to scale entities by X number. Now, in practise this had no use and I also realised that I would need some form of width and height variable so these became very poorly named variables for that case. Going back to the original point, forcing all entities to have these 6 attributes is bad design inherently, referring to the given example.  
+
+For an ECS implementation, entities have already been described as purely integers. As of writing this (2026-05-07), I have already written the updated entity code to only feature an ID. I was debating forcing the awake state but that would break the ECS architecture I want to follow so likely I'll be making a component that tracks an awake state. With entities being represented as integers, the next step to assess is components. How should components work?
+
+## Component Storage
+
+So components in ECS hold pure data, which is great. Why is this great? Well it means that components can merely be structs, without needing any other weird features, just write the data you want a component to hold and there, it holds it. However, one thing that has been bothering me is how systems grab the component's data. Do I list all component structs in one massive file? Probably not, systems could potentially access other component data which isnt cool. What about having 1 file per component and 1 file per system? I believe this is likely the better solution as it's easier to manage and track who uses what (and you're less likely to attach a system to the wrong component). Another thing is how do systems use components? Well the simplest answer is components will probably be some form of a header file. Speaking of:
+
+### Header files
+So when designing my pong.c game, there were like 8 lines of include directories. Not only does this look very ugly but it also:  
+- Kind of exposes part of the engine
+- Also just is very pain stakingly boring
+
+While it does allow users to nitpick parts of the engine they want, I feel it would be more useful to have 1 global header which then imports all the others. How to do this? No idea, but it is something to definitely look into.  
+
+This does also allow for modularity when designing games in the engine as, as stated before, Agents in games that are made should not be required. This can be solved by, for example, not including a `CloudyAI.h` file. This can be done for components too within the engine however, since they are a core component for V2, they'll be included by default in the future global Cloudy header.  
+
+## Systems Design
+
+Final letter now. So systems are supposed to use the structs in their respective component to be able to manipulate. Now there are 2 issues with this. 1, the systems may not be able to actually modify the struct in the header (am yet to test but if its my idea, it probably won't work), and 2, how can the header files be tied to an integer?  
+
+This is my first main issue with the current implementation of my architecture.

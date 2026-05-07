@@ -2,12 +2,7 @@
 #define ENTITY_H
 typedef struct{
     int id;         // Numeric ID
-    int awake;      // Awake or not, used for future time saving
-    float posX,     // X position
-          posY,     // Y position
-          scaleX,   // Width
-          scaleY;   // Height
-} CDY_Entity;
+} CDY_Entity;       // Only holds an ID for ECS
 
 typedef struct{
     CDY_Entity *entities;       // Stores pointer of all entities

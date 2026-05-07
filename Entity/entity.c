@@ -23,11 +23,6 @@ CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
 
     CDY_Entity *entity = &manager->entities[manager->CDY_totalEntityCount];
     entity->id = manager->CDY_totalEntityCount;
-    entity->awake = 1;
-    entity->posX = 0;
-    entity->posY = 0;
-    entity->scaleX = 0;
-    entity->scaleY = 0;
     manager->CDY_totalEntityCount++;
     return entity;
 
@@ -36,12 +31,5 @@ CDY_Entity *CDY_EntityCreate(CDY_EntityManager *manager) {
 }
 
 int CDY_EntityDestroy(CDY_EntityManager *manager, int search_id){
-    for (int i = 0; i < manager->CDY_totalEntityCount; i++){
-        CDY_Entity *entity = &manager->entities[i]; // get address of manager entity store
-        if (search_id == entity->id) {
-            entity->awake = 0;
-            return 1; // func success
-        }
-    return 0;
-    }
+    printf("Discontinued");
 }

@@ -1,0 +1,3 @@
+Assets features core assets of the engine that are free to use such as fonts, audio, basic images etc.
+
+They'll all be stored here and (probably) have some way to access them so you don't have to go snooping around the engine to hunt for them.

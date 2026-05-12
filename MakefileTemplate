@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -I/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -I.
+CFLAGS = -I/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -I. -Wall -Wextra -Wpedantic -g -fsanitize=address -fsanitize=undefined
 LIBS = -L/usr/lib -lSDL2 -lSDL2_ttf
 
 CLOUDY_OBJS = Cloudy/Entity/entity.o Cloudy/Events/events.o \

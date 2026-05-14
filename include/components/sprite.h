@@ -1,7 +1,6 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include <cstdint>
 #include <stdint.h>
 
 typedef struct {

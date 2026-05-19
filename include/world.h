@@ -41,4 +41,6 @@ typedef struct {
     CDY_SpriteComponent        sprites[CDY_MAX_ENTITIES];
 } CDY_World;
 
+void CDY_WldInit(CDY_World *world);
+
 #endif

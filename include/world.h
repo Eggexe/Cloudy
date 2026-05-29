@@ -30,7 +30,7 @@
 // Components
 // Component masks
 // Given to every system to allow them to read entity data
-typedef struct {
+typedef struct CDY_World {
     CDY_Entity entities[CDY_MAX_ENTITIES];
     uint32_t component_mask[CDY_MAX_ENTITIES];
     uint32_t entity_count;
@@ -39,7 +39,7 @@ typedef struct {
     CDY_VelocityComponent   velocities[CDY_MAX_ENTITIES];
     CDY_RectComponent       rectangles[CDY_MAX_ENTITIES];
     CDY_SpriteComponent        sprites[CDY_MAX_ENTITIES];
-} CDY_World;
+} CDY_World; // Fills CDY_World from entity.h to this version.
 
 void CDY_WldInit(CDY_World *world);
 

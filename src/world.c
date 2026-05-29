@@ -1,5 +1,4 @@
 #include "../include/world.h"
-#include <stdio.h>
 #include <string.h>
 
 // Sets CDY_World to 0, clears the world for use

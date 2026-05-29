@@ -16,3 +16,8 @@ int CDY_WldCreateEntity(CDY_World *world) {
     world->entity_count++;
     return id;
 }
+
+int CDY_WldDestroyEntity(CDY_World *world, int id) {
+    if (id >= world->entity_count || id < 0) return -1;
+    else { world->component_mask[id] = 0; return 0;}
+}

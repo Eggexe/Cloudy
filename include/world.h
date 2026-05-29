@@ -43,6 +43,6 @@ typedef struct CDY_World {
 
 void CDY_WldInit(CDY_World *world);
 int CDY_WldCreateEntity(CDY_World *world);
-int CDY_WldDestroyEntity(CDY_World *world);
+int CDY_WldDestroyEntity(CDY_World *world, int id);
 
 #endif

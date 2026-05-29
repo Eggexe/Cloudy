@@ -42,5 +42,7 @@ typedef struct CDY_World {
 } CDY_World; // Fills CDY_World from entity.h to this version.
 
 void CDY_WldInit(CDY_World *world);
+int CDY_WldCreateEntity(CDY_World *world);
+int CDY_WldDestroyEntity(CDY_World *world);
 
 #endif

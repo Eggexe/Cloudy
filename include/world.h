@@ -45,4 +45,8 @@ void CDY_WldInit(CDY_World *world);
 int CDY_WldCreateEntity(CDY_World *world);
 int CDY_WldDestroyEntity(CDY_World *world, int id);
 
+int CDY_WldAddComponent(CDY_World *world, int ent_id, uint32_t component);
+int CDY_WldCheckComponent(CDY_World *world, int ent_id, uint32_t component);
+int CDY_WldRemoveComponent(CDY_World *world, int ent_id, uint32_t component);
+
 #endif

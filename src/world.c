@@ -20,3 +20,18 @@ int CDY_WldDestroyEntity(CDY_World *world, int id) {
     if (id >= world->entity_count || id < 0) return -1;
     else { world->component_mask[id] = 0; return 0;}
 }
+
+int CDY_WldAddComponent(CDY_World *world, int ent_id, uint32_t component) {
+    if (ent_id >= world->entity_count || ent_id < 0) return -1;
+    else {world->component_mask[ent_id] |= component; return 0;}
+}
+
+int CDY_WldCheckComponent(CDY_World *world, int ent_id, uint32_t component) {
+    if (ent_id >= world->entity_count || ent_id < 0) return -1;
+    else return world->component_mask[ent_id] & component;
+}
+
+int CDY_WldRemoveComponent(CDY_World *world, int ent_id, uint32_t component) {
+    if (ent_id >= world->entity_count || ent_id < 0) return -1;
+    else {world->component_mask[ent_id] &= ~component; return 0;}
+}

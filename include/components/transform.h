@@ -1,10 +1,12 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
-// Stores position and size of entity in a 2D environment
-// Mostly read only, see velocity.h for movement (potentially changes)
+// Stores position, size and rotation of an entity in 2D space.
+// CDY_TransformComponent acts as a global position store for entities. This component is typically required for entities to make them move.
 typedef struct {
-    float x, y, w, h;
+    float x, y;
+    float w, h;
+    float rotation;
 } CDY_TransformComponent;
 
 #endif

@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include <stdint.h>
-typedef struct CDY_World CDY_World;
+typedef struct CDY_Registry CDY_Registry;
 // Struct above tells compiler CDY_World exists somewhere
 // Cannot include due to circular dependency
 
@@ -11,6 +11,6 @@ typedef struct CDY_World CDY_World;
 // Masks can be applied to toggle or view components
 typedef uint32_t CDY_Entity;
 
-void CDY_EntityInit(CDY_World *world);
+void CDY_EntityInit(CDY_Registry *registry);
 
 #endif

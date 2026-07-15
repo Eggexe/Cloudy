@@ -1,5 +1,5 @@
-#ifndef WORLD_H
-#define WORLD_H
+#ifndef REGISTRY
+#define REGISTRY_H
 
 #include <stdint.h>
 #include <stdint.h>
@@ -30,7 +30,7 @@
 // Components
 // Component masks
 // Given to every system to allow them to read entity data
-typedef struct CDY_World {
+typedef struct CDY_Registry {
     CDY_Entity entities[CDY_MAX_ENTITIES];
     uint32_t component_mask[CDY_MAX_ENTITIES];
     uint32_t entity_count;
@@ -39,14 +39,14 @@ typedef struct CDY_World {
     CDY_VelocityComponent   velocities[CDY_MAX_ENTITIES];
     CDY_RectComponent       rectangles[CDY_MAX_ENTITIES];
     CDY_SpriteComponent        sprites[CDY_MAX_ENTITIES];
-} CDY_World; // Fills CDY_World from entity.h to this version.
+} CDY_Registry; // Fills CDY_Registry from entity.h to this version.
 
-void CDY_WldInit(CDY_World *world);
-int CDY_WldCreateEntity(CDY_World *world);
-int CDY_WldDestroyEntity(CDY_World *world, int id);
+void CDY_RegInit(CDY_Registry *registry);
+int CDY_RegCreateEntity(CDY_Registry *registry);
+int CDY_RegDestroyEntity(CDY_Registry *registry, int id);
 
-int CDY_WldAddComponent(CDY_World *world, int ent_id, uint32_t component);
-int CDY_WldCheckComponent(CDY_World *world, int ent_id, uint32_t component);
-int CDY_WldRemoveComponent(CDY_World *world, int ent_id, uint32_t component);
+int CDY_RegAddComponent(CDY_Registry *registry, int ent_id, uint32_t component);
+int CDY_RegCheckComponent(CDY_Registry *registry, int ent_id, uint32_t component);
+int CDY_RegRemoveComponent(CDY_Registry *registry, int ent_id, uint32_t component);
 
 #endif

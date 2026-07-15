@@ -1,4 +1,4 @@
-#ifndef REGISTRY
+#ifndef REGISTRY_H
 #define REGISTRY_H
 
 #include <stdint.h>

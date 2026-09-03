@@ -1,1 +1,0 @@
-Include features all include directories for making games. While I will likely have a master include for ease of use, feel free to pick and choose what you want, if it matters.

@@ -1,1 +1,0 @@
-Src contains funky engine internals that are exclusively for the engine. You do not need to touch this for developing games, thanks.

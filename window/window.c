@@ -8,13 +8,13 @@
 #include <stdlib.h>
 
 CDY_SimpleWindow *CDY_SWCreate(const char *title, int width, int height) {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) printf("Init error %s\n", SDL_GetError()); return NULL;
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {printf("Init error %s\n", SDL_GetError()); return NULL;}
 
     SDL_Window *window = SDL_CreateWindow(title, 250, 250, width, height, 0);
-    if (window == NULL) printf("Window error %s\n", SDL_GetError()); return NULL;
+    if (window == NULL) {printf("Window error %s\n", SDL_GetError()); return NULL;}
 
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (renderer == NULL) printf("Render error %s\n", SDL_GetError()); return NULL;
+    if (renderer == NULL) {printf("Render error %s\n", SDL_GetError()); return NULL;}
 
     CDY_SimpleWindow *CDY_SW = malloc(sizeof(CDY_SimpleWindow));
     CDY_SW->sdl_window = window;
